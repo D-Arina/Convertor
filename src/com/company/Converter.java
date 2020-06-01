@@ -1,6 +1,7 @@
 package com.company;
 import java.io.*;
 import java.nio.charset.Charset;
+import java.util.Scanner;
 
 public class Converter {
 
@@ -26,10 +27,24 @@ public class Converter {
     }
 
     public static void main(String[] args) throws Exception {
-        File file = new File ("C://Users//dudki//IdeaProjects//Convector//myFile.txt");
-        File file1 = new File("C://Users//dudki//IdeaProjects//Convector//myFile2.txt");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Путь к файлу in: ");
+        String in = scanner.nextLine();
+        System.out.println("Кодировка файла in");
+        String codIn = scanner.nextLine();
+        System.out.println("Имя выходного файла");
+        String out = scanner.nextLine();
+        System.out.println("Кодировка выходного файла");
+        String codOut = scanner.nextLine();
+
+        File file = new File (in);
+        File file1 = new File(out);
+
         Converter con = new Converter();
-        con.convert(file, "UTF-8", file1, "ISO8859-5");
+        con.convert(file, codIn, file1, codOut);
+        // UTF-8, ISO8859-5
+        //C://Users//dudki//IdeaProjects//Convector//myFile.txt
+        //C://Users//dudki//IdeaProjects//Convector//myFile5.txt
     }
 
 
